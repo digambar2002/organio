@@ -1,0 +1,19 @@
+:root {
+    --bg-color: #ffffff;
+    --primary-color: #1cb273;
+    --pink-color: #ff7c7e;
+    --text-color: #181818;
+    --white-200:#f6f8f5;
+
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+body{
+    background-color: var(--bg-color) !important;
+}
+.primary-color{
+    color: var(--primary-color);
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Material Design for Bootstrap</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+  <!-- MDB -->
+  <link rel="stylesheet" href="../assets/mdb/css/mdb.min.css" />
+  <link rel="stylesheet" href="../assets/css/colors.css" />
+  <style>
+    .form-control:focus~.form-notch div {
+      border-color: var(--primary-color) !important;
+    }
+
+    .form-control:focus~.form-label {
+      color: var(--primary-color) !important;
+    }
+
+    body {
+      background-color: var(--primary-color) !important;
+      outline: none;
+    }
+
+
+
+    .bg-round-card {
+      background-color: var(--white-200) !important;
+      border-radius: 40px;
+    }
+
+    .rounded-card {
+      border-radius: 40px 40px 0px 0px;
+      background-color: #ffffff;
+    }
+
+    .icon {
+      font-size: 18px;
+      /* color: var(--primary-color); */
+    }
+
+    .insta {
+      color: #f70388;
+    }
+
+    #mainContainer::-webkit-scrollbar {
+      width: 0;
+      /* Remove scrollbar space */
+      background: transparent;
+      /* Optional: just make scrollbar invisible */
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <!-- Start your project here -->
+  <div id="mainContainer" class="container-fluid">
+
+
+    <div class="col-12 mt-2 p-2 ml-4">
+      <i class="fa-solid fa-arrow-left text-light" style="font-size: 24px;"></i>
+    </div>
+
+    <div class="row">
+      <div class="col-12 mb-4">
+        <div class="text-center">
+          <img src="../assets/img/register_page_2.svg" style="height: 190px;" class="img-fluid" alt="Phone image">
+
+        </div>
+      </div>
+
+
+      <section class="p-0">
+        <div class="col-12 p-0">
+          <div class="pt-4 bg-round-card ">
+            <h5 class="text-center">Registration</h5>
+            <div class="card rounded-card login-from mt-4">
+              <div class="card-body">
+
+                <div class="text-center mb-4">
+                  <button type="button" class="btn btn-light btn-floating mx-1">
+                    <i class="fab fa-facebook-f icon text-primary"></i>
+                  </button>
+
+                  <button type="button" class="btn btn-light btn-floating mx-1 insta">
+                    <i class="fab fa-instagram icon"></i>
+                  </button>
+
+                  <button type="button" class="btn btn-light btn-floating mx-1">
+                    <i class="fab fa-twitter icon text-info"></i>
+                  </button>
+                  <p class="text-secondary">connect with us:</p>
+                </div>
+
+                <form>
+                  <!-- 2 column grid layout with text inputs for the first and last names -->
+                  <div class="row mb-4">
+                    <div class="col">
+
+
+                      <div class="form-outline mb-4">
+                        <input type="text" id="form3Example3" class="form-control" />
+                        <label class="form-label " for="form3Example3">Name</label>
+                      </div>
+
+                      <!-- <div class="form-outline mb-4">
+                        <input type="text" id="form3Example3" class="form-control" />
+                        <label class="form-label" for="form3Example3">Username</label>
+                      </div> -->
+                      <!-- Email input -->
+                      <div class="form-outline mb-4">
+                        <input type="email" id="form3Example3" class="form-control" />
+                        <label class="form-label" for="form3Example3">Email address</label>
+                      </div>
+
+                      <!-- Password input -->
+                      <div class="form-outline mb-4">
+                        <input type="password" id="form3Example4" class="form-control" />
+                        <label class="form-label" for="form3Example4">Password</label>
+                      </div>
+
+                      <!-- <div class="form-outline mb-4">
+                        <input type="password" id="form3Example4" class="form-control" />
+                        <label class="form-label" for="form3Example4">Repeat password</label>
+                      </div> -->
+
+                      <!-- Checkbox -->
+                      <!-- <div class="form-check d-flex justify-content-center mb-4">
+                        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
+                        <label class="form-check-label" for="form2Example33">
+                          I have read and agree to the term
+                        </label>
+                      </div> -->
+
+                      <!-- Submit button -->
+                      <div style="margin: 24px;">
+                        <button class="btn bg-primary text-light btn-block"
+                          style="border-radius: 25px; height: 50px;">Submit</button>
+
+                      </div>
+
+
+                      <!-- <button type="submit" class="btn btn-success btn-block mb-4">Sign up</button>
+                   -->
+                      <p class="text-center text-secondary">Already have an account?<a href="index.html"> Login here</a>
+                      </p>
+
+                </form>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+
+
+  </div>
+  <!-- End your project here -->
+
+  <!-- MDB -->
+  <script type="text/javascript" src="../assets/mdb/js/mdb.min.js"></script>
+  <!-- Custom scripts -->
+  <script type="text/javascript"></script>
+</body>
+
+</html>
