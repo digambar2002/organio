@@ -1,3 +1,91 @@
+<?php 
+
+include "../connection.php";
+
+// Starting Session
+session_start();
+
+// Checking Already user login or not 
+if (isset($_SESSION['user'])) {
+  header("Location: success.html");
+}
+// checking admin login or not
+else if (isset($_SESSION['admin'])) {
+  header("Location: ../admin/dashboard.php");
+}
+// if no one is login then execute login code
+else {
+  $error = null;
+
+  if (isset($_POST['login'])) {
+
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $password =  mysqli_real_escape_string($conn, $_POST['password']);
+
+
+    if (empty(trim($_POST['password'])) && empty(trim($_POST['username']))) {
+
+      // header("Location: ../user/login.php?error=Username and Password required");
+      $error = "* Username and Password required";
+      // exit();
+    } elseif (empty(trim($_POST['username']))) {
+
+      $username_err = "Username cannot be blank";
+      // header("Location: ../user/login.php?error=Username required");
+      $error = "* Username required";
+      // exit();
+    } elseif (empty(trim($_POST['password']))) {
+
+      // header("Location: ../user/login.php?error=Password required");
+      $error = "* Password required";
+      // exit();
+    } else {
+
+      $password = md5($password);
+      $query = "SELECT * FROM accounts WHERE username= '{$username}' AND Password= '{$password}'";
+      $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
+
+      if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+          $vstatus = $row['vstatus'];
+          $flag = $row['flag'];
+          $email = $row['email'];
+          $createdate = $row['createdate'];
+        }
+
+
+        // checking account is active or not 
+
+        if ($vstatus == 1) {
+
+          // checking is it admin account or user account
+          if ($flag == 'admin') {
+            // if user account
+
+            session_start();
+            $_SESSION['admin'] = $username;
+            header("Location: ");
+          } else {
+            // if user account
+
+            session_start();
+            $_SESSION['user'] = $username;
+            header("Location: success.html");
+          }
+        } else {
+          $error = "Account not activated, please check your email";
+        }
+      } else {
+        $error = " * Invalid username and password";
+      }
+    }
+  }
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -96,26 +184,26 @@
                   </button>
                   <p class="text-secondary">connect with us:</p>
                 </div>
+                
 
+                <p class="text-danger"><?php echo $error; ?></p>
 
-                <form>
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
                   <!-- Email input -->
                   <div class="form-outline mb-4">
-                    <input type="email" id="form2Example1" class="form-control form-control-lg" />
-                    <label class="form-label" for="form2Example1">Email address</label>
+                    <input type="username"  id="username" name="username" class="form-control form-control-lg" />
+                    <label class="form-label" for="username">username</label>
                   </div>
 
                   <!-- Password input -->
                   <div class="form-outline mb-4">
-                    <input type="password" id="form2Example2" class="form-control form-control-lg" />
-                    <label class="form-label" for="form2Example2">Password</label>
+                    <input type="password" id="password" name="password" class="form-control form-control-lg" />
+                    <label class="form-label" for="password">Password</label>
                   </div>
 
                   <!-- 2 column grid layout for inline styling -->
                   <div class="row mb-4">
-
-
                     <div class="col mx-1">
                       <!-- Simple link  -->
                       <a href="#!">Forgot password?</a>
@@ -124,15 +212,15 @@
 
                   <!-- Submit button -->
                   <div style="margin: 24px;">
-                    <button class="btn bg-primary text-light btn-block"
-                      style="border-radius: 25px; height: 50px;">Login</button>
+                    <button class="btn bg-primary  text-light btn-block"
+                      style="border-radius: 25px; height: 50px;" name="login">Login</button>
 
                   </div>
 
 
                   <!-- Register buttons -->
                   <div class="text-center">
-                    <p class="text-secondary">Don't have an account? <a href="ragistration.html">Register</a></p>
+                    <p class="text-secondary">Don't have an account? <a href="ragistration.php">Register</a></p>
                   </div>
                 </form>
               </div>
@@ -152,6 +240,7 @@
   <!-- MDB -->
   <script type="text/javascript" src="../assets/mdb/js/mdb.min.js"></script>
   <!-- Custom scripts -->
+  
   <script type="text/javascript"></script>
 </body>
 

@@ -1,3 +1,7 @@
+<?php
+  include 'config.php'
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +9,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>Material Design for Bootstrap</title>
+  <title><?php echo STORE_NAME ?></title>
   <!-- MDB icon -->
   <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
   <!-- Font Awesome -->
@@ -25,11 +29,11 @@
   <section>
     <nav class="navbar navbar-light bg-light fixed-top">
       <div class="container-fluid">
-        <a class="brand">Organio</a>
+        <a class="brand"><?php echo STORE_NAME ?></a>
         <div class="dropdown">
           <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar"
             role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-            <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" height="25"
+            <img src="assets/img/avtar.webp" class="rounded-circle" height="25"
               alt="Black and White Portrait of a Man" loading="lazy" />
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
@@ -237,18 +241,20 @@
           </div>
         </a>
         <a href="pages/notification.html">
-        <div class="bottom-icon ripple ">
-          <i class='bx bx-bell'></i>
-          <span class="badge bg-danger badge-dot"></span>
-        </div>
+          <div class="bottom-icon ripple ">
+            <i class='bx bx-bell'></i>
+            <span class="badge bg-danger badge-dot"></span>
+          </div>
         </a>
         <div class="bottom-icon ripple ">
           <i class='bx bx-user-circle'></i>
         </div>
-        <div class="bottom-icon ripple ">
-          <i class='bx bx-cart'></i>
-          <span class="badge bg-danger badge-dot"></span>
-        </div>
+        <a href="pages/cart.html">
+          <div class="bottom-icon ripple ">
+            <i class='bx bx-cart'></i>
+            <span class="badge bg-danger badge-dot"></span>
+          </div>
+        </a>
       </div>
     </nav>
   </section>
