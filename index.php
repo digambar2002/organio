@@ -1,5 +1,6 @@
 <?php
-  include 'config.php'
+  include 'config.php';
+  session_start();
 ?>
 
 <!DOCTYPE html>
@@ -30,6 +31,11 @@
     <nav class="navbar navbar-light bg-light fixed-top">
       <div class="container-fluid">
         <a class="brand"><?php echo STORE_NAME ?></a>
+
+        <?php
+
+        if (isset($_SESSION['user'])) { ?>
+
         <div class="dropdown">
           <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar"
             role="button" data-mdb-toggle="dropdown" aria-expanded="false">
@@ -44,10 +50,30 @@
               <a class="dropdown-item" href="#">Settings</a>
             </li>
             <li>
-              <a class="dropdown-item" href="#">Logout</a>
+              <a class="dropdown-item" href="logout.php">Logout</a>
             </li>
           </ul>
         </div>
+        <?php }
+          else{
+        ?>
+        <div class="dropdown">
+          <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar"
+            role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+            <img src="assets/img/avtar.webp" class="rounded-circle" height="25"
+              alt="Black and White Portrait of a Man" loading="lazy" />
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+            <li>
+              <a class="dropdown-item" href="authentication">login</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">help</a>
+            </li>
+          </ul>
+        </div>
+
+        <?php }  ?>
       </div>
       <div class="container-fluid p-2 mt-2">
         <form class="d-flex input-group">

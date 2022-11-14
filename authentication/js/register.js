@@ -49,20 +49,24 @@ $(document).ready(function () {
             $.ajax({
                 type: "POST",
                 url: "code.php",
-                data: {RegisterForm:"1", Username: Username, Email: Email, Password: Password},
+                data: {RegisterForm:"1", RUsername: Username, REmail: Email, RPassword: Password},
                 cache: false,
                 beforeSend: function () {
                     $("#loading").attr('hidden', false);
                     console.log('running...');
                 },
-                complete: function () {
-                    
-                    $("#loading").attr('hidden', true);
-                    $("#EmailPrompt").attr('hidden', false);
-                    console.log('stop');
-                },
                 success: function (response) {
                     console.log(response);
+                    if (response == '1') {
+                        console.log('run');
+                        $("#loading").attr('hidden', true);
+                        $("#EmailPrompt").attr('hidden', false);
+                    }
+                    else{
+                        
+                        $("#loading").attr('hidden', true);
+                    }
+                    
                 },
                 
             });

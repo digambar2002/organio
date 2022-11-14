@@ -8,9 +8,9 @@ include "../config.php";
 if (isset($_POST['RegisterForm'])) {
 
     // storing values of form 
-    $username =  $_POST['Username'];
-    $email =  $_POST['Email'];
-    $password =  $_POST['Password'];
+    $username =  $_POST['RUsername'];
+    $email =  $_POST['REmail'];
+    $password =  $_POST['RPassword'];
 
     $userFlag = usernameCheck($username);
     $emailFlag = emailCheck($email);
@@ -34,7 +34,9 @@ if (isset($_POST['RegisterForm'])) {
 
         VerificationMail($email, $subject, $messsage, $action, $vkey, $flag);
 
-        echo "success";
+        echo "1";
+
+        // echo $userFlag.$emailFlag.$passFlag;
         
 
 

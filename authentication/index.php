@@ -7,7 +7,7 @@ session_start();
 
 // Checking Already user login or not 
 if (isset($_SESSION['user'])) {
-  header("Location: success.html");
+  header("Location: ../index.php");
 }
 // checking admin login or not
 else if (isset($_SESSION['admin'])) {
@@ -70,7 +70,7 @@ else {
 
             session_start();
             $_SESSION['user'] = $username;
-            header("Location: success.html");
+            header("Location: ../index.php");
           }
         } else {
           $error = "Account not activated, please check your email";
@@ -93,7 +93,7 @@ else {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>Material Design for Bootstrap</title>
+  <title>login</title>
   <!-- MDB icon -->
   <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
   <!-- Font Awesome -->
@@ -155,7 +155,10 @@ else {
     <div class="row">
 
       <div class="col-12 mt-2 p-2 ml-4">
-        <i class="fa-solid fa-arrow-left text-light" style="font-size: 24px;"></i>
+      <a href="../index.php">
+
+        <i class="fa-solid fa-xmark text-light" style="font-size: 24px;"></i>
+      </a>  
       </div>
 
       <div class="col-12 mb-4">
